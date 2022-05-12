@@ -1,0 +1,110 @@
+
+<div id="formulario" style="background-color: rgb(199, 186, 213); ;">
+<h1>Agenda</h1>
+<form class="formulario">
+    <h2>Añadir contacto</h2>
+    <fieldset class="campo">
+        <legend class="leyenda">Datos Personales</legend>
+
+        <mat-grid-list cols="4" rowHeight="2:1">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" placeholder="Introduce tu nombre" [formControl]="nombreFC" required>
+                    <mat-error *ngIf="nombreFC.invalid">{{getErrorMessageNombre()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" placeholder="Introduce tus apellidos" [formControl]="apellidosFC" required>
+                    <mat-error *ngIf="apellidosFC.invalid">{{getErrorMessageApellidos()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Edad</mat-label>
+                    <input matInput type="number" placeholder="Introduce tu edad" [formControl]="edadFC" required>
+                    <mat-error *ngIf="edadFC.invalid">{{getErrorMessageEdad()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>DNI</mat-label>
+                    <input matInput type="text" placeholder="Introduce tu DNI" [formControl]="dniFC" required>
+                    <mat-error *ngIf="dniFC.invalid">{{getErrorMessageDni()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Cumpleaños</mat-label>
+                    <input matInput type="date" [formControl]="cumpleFC" required>
+                    <mat-error *ngIf="cumpleFC.invalid">{{getErrorMessageCumple()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Color Favorito</mat-label>
+                    <input matInput type="text" placeholder="Introduce tu color favorito" [formControl]="colorfavFC" required>
+                    <mat-error *ngIf="colorfavFC.invalid">{{getErrorMessageColor()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sexo</mat-label>
+                    <select matNativeControl [formControl]="sexoFC" required>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Otro">Otro</option>
+                      <option value="Noespec">No especificado</option>
+                    </select>
+                    <mat-error *ngIf="sexoFC.invalid">{{getErrorMessageSexo()}}</mat-error>
+                  </mat-form-field> 
+            </mat-grid-tile>
+        </mat-grid-list>
+    </fieldset>
+    <br/>
+    <div style="text-align: center;"> 
+    <button type="button" mat-raised-button color="primary" (click)="addContacto()">Añadir/modificar</button> &nbsp;&nbsp;
+    <button #resetb type="reset" mat-raised-button color="accent">Limpiar formulario</button>
+    </div>
+</form>
+<br/>
+<br/>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="show-contacts">
+<mat-grid-list cols="4" rowHeight="1:1">
+    <div *ngFor="let contacto of contactlist; let i = index">
+        <mat-grid-tile>
+            <div class="contacto" style="padding: 15px;">
+                <mat-card-title>{{contacto.nombre}}</mat-card-title>
+                <mat-card-subtitle><h4>{{contacto.apellidos}}</h4></mat-card-subtitle>
+                <mat-card-content>
+                    <p>Edad: {{contacto.edad}}</p>
+                    <p>DNI: {{contacto.dni}}</p>
+                    <p>Cumpleaños: {{contacto.cumple}}</p>
+                    <p>Color Favorito: {{contacto.colorFav}}</p>
+                    <p>Sexo: {{contacto.sexo}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-mini-fab color="warn" aria-label="Borrar contacto" (click)="removeContacto(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="primary" aria-label="Editar contacto" (click)="editContacto(i)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </div>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>
+</div>

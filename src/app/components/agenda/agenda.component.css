@@ -1,0 +1,64 @@
+
+h1{
+    font-family: pacifica;
+    padding-top: 50px;
+    font-size: 3cm;
+    text-align: center;
+    color: rgb(93, 48, 230);
+    font-weight: bolder;
+}
+
+.formulario{
+    margin: 50px;
+}
+
+h2{
+  font-style: italic;
+  border-radius: 6px;
+  border-bottom: 2px solid rgb(250, 57, 121);
+  background:rgb(250, 57, 121);
+  color:#fff;
+
+  display:inline-block;
+  padding:3px 15px;
+  ;
+}
+
+h2:after{
+    left:0px;
+    display:block;
+    position:absolute;
+    width:93.2%;
+    height:3px;
+    margin-top:2px;
+    margin-left: 50px;
+    content: " ";
+    background:rgb(250, 57, 121);
+  }
+
+.campo{
+    border-radius: 6px;
+    border-style: solid;
+    background-color: antiquewhite;
+}
+
+.leyenda{
+    background-color:  rgb(93, 48, 230);
+    border-radius: 3px;
+    color: white;
+}
+
+.mat-divider{
+    border-style:solid ;
+    color: gray;
+}
+.contacto{
+    background-color:rgb(178, 157, 204);
+    border-radius: 6px;
+}
+h4{
+    color: antiquewhite;
+}
+.show-contacts{
+    background-color: antiquewhite;
+}
